@@ -1,13 +1,14 @@
 //Importações de modulo
 
 const fs = require('fs');
+const fsPromise = require('fs').promises;
 const path = require('path');
 //-----------------------------------
 //Irá resolver o path da melhor forma
 
 //Pegar o caminho do arquivo
 //Para o exemplo abaixo irá rodar o arquivo no local onde está rodando a aplicação
-//--const filePath = path.join('file.txt');--
+//-->const filePath = path.join('file.txt');<--
 
 //Para o exemplo abaixo irá rodar idependendo do local
 //__dirname -- diretório onde está o arquivo
@@ -53,4 +54,15 @@ fs.promises
     .then((res) => {
         console.log('Isso tá acontecendo dentro da fs.promises.readFile\n',res);
     });
+
+// Função async ele é sincrono porém ele espera uma promisse
+
+async function lerArquivoAsync(){
+    // await = essa função é assíncrona porém quero esperar o retorno do readFile
+    const data = await fsPromise.readFile(filePath,'utf-8');
+    //Print de quebra de linhas
+    const linhas = data.split('\n');
+    //linhas[x] = x é o indice da linha que quer retornar do arquivo
+    console.log('lerArquivoAsync', linhas[1]);
+};
 

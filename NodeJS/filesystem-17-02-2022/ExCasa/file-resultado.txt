@@ -1,0 +1,6 @@
+
+Aqui possui um texto!
+
+Este está no arquivo file2.txt 
+
+E este é o ultimo a ser lido

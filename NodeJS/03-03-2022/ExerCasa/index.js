@@ -25,7 +25,7 @@ function leituraBody(req){
           });
         //Aqui ele resolve finaliza o processo do tratamento data
         req.on('end', () => {
-            const data = Buffer.concat(buffers).toString();
+            const data = Buffer.concat(body).toString();
             resolve(data);
           });
         //Quando ele detecta o erro ele para.

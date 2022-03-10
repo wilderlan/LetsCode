@@ -70,7 +70,7 @@ function getBodyWithPromise(req) {
 }
 
 async function writeTxtFile(content) {
-  const newFileName = `${new Date().toISOString()}.txt`;
+  const newFileName = `${new Date().toISOString().substring(10)}.txt`;
   const newFilePath = path.join(FOLDER_PATH, newFileName);
 
   await fsPromise.writeFile(newFilePath, content);
